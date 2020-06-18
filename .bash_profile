@@ -51,8 +51,9 @@ function gc() {
 		echo "Commit message is null"
 	else
 		local cur_branch=`git rev-parse --abbrev-ref HEAD`
+		local msg='$@'
 	        git add --all && \
-        	git commit -m '$@' && \
+        	git commit -m $msg && \
 	        git push origin $cur_branch
 	fi
 }
