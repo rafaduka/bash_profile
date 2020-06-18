@@ -52,7 +52,7 @@ function gc() {
 	else
 		local cur_branch=`git rev-parse --abbrev-ref HEAD`
 	        git add --all && \
-        	git commit -m $@ && \
+        	git commit -m '$@' && \
 	        git push origin $cur_branch
 	fi
 }
