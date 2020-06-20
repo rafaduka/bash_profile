@@ -44,7 +44,6 @@ function fc() {
 function gc() {
 	echo "Enter a commit message:"
 	read msg
-	echo $msg 
 	cur_branch=`git rev-parse --abbrev-ref HEAD`
         git add --all && \
        	git commit -m "$msg" && \
