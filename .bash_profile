@@ -38,22 +38,15 @@ function vpn() {
 }
 
 function fc() {
-	find $pscore -name "*$@*.java"
-}
-
-function grep() {
-	grep '$@' -Rn --color .
+	find . -name "*$@*.java"
 }
 
 function gc() {
-	if [ $# -eq 0 ]
-	then
-		echo "Commit message is null"
-	else
-		local cur_branch=`git rev-parse --abbrev-ref HEAD`
-		local msg='$@'
-	        git add --all && \
-        	git commit -m $msg && \
-	        git push origin $cur_branch
-	fi
+	echo "Enter a commit message:"
+	read msg
+	echo $msg 
+	cur_branch=`git rev-parse --abbrev-ref HEAD`
+        git add --all && \
+       	git commit -m "$msg" && \
+        git push origin $cur_branch
 }
